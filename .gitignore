@@ -1,0 +1,27 @@
+
+# Entorno virtual
+venv/
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Archivos de base de datos de desarrollo
+*.sqlite3
+
+# Archivos temporales
+*.log
+*.pot
+*.pyc
+*.pyd
+*.swp
+.DS_Store
+
+# Archivos de configuración de IDEs/editors
+.vscode/
+.idea/
+
+# Archivos estáticos y de media generados
+staticfiles/
+media/
