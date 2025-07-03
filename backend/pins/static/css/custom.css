@@ -65,6 +65,11 @@
 .postit-green { background: #caffb3; }
 .postit-pink { background: #ffd1f7; }
 
+.postit-card .card-title {
+    color: #4A6B8A; /* Azul pizarra para un estilo más suave */
+    font-weight: bold;
+}
+
 .postit-card::after {
     content: "";
     position: absolute;
@@ -76,4 +81,98 @@
     border-radius: 0 0 12px 12px;
     opacity: 0.6;
     z-index: 1;
+}
+
+/* Estilos para el formulario de agregar rutas */
+.form-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e0f7fa;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.form-card .card-header {
+    background: linear-gradient(135deg, #2176ae 0%, #4A6B8A 100%);
+    border-radius: 10px 10px 0 0;
+    border-bottom: 3px solid #a97c50;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #4A6B8A;
+    margin-bottom: 0.5rem;
+}
+
+.form-control:focus {
+    border-color: #2176ae;
+    box-shadow: 0 0 0 0.2rem rgba(33, 118, 174, 0.25);
+}
+
+.form-control {
+    border: 2px solid #e0f7fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.form-control:hover {
+    border-color: #b3e6ff;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2176ae 0%, #4A6B8A 100%);
+    border: 2px solid #2176ae;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #4A6B8A 0%, #2176ae 100%);
+    border-color: #4A6B8A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(33, 118, 174, 0.3);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    border: 2px solid #6c757d;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #495057 0%, #6c757d 100%);
+    border-color: #495057;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+.alert {
+    border-radius: 8px;
+    border: 2px solid;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border-color: #28a745;
+    color: #155724;
+}
+
+.alert-error {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.form-text {
+    color: #6c757d;
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-weight: 500;
 }
