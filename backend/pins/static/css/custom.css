@@ -1,0 +1,156 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://www.transparenttextures.com/patterns/cork-board.png');
+    background-color: #deb887;
+    background-repeat: repeat;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* Header */
+.header-main {
+    background-color: #007bff; /* Azul primario de Bootstrap */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+}
+
+.header-main .navbar-brand {
+    font-size: 2rem; /* Tamaño de fuente más grande */
+    font-weight: bold;
+}
+
+.header-main .navbar-brand:hover {
+    color: #f0f0f0;
+}
+
+/* Navegación */
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+    margin-top: 20px;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    color: #007bff;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+    border-bottom: 2px solid #007bff;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: #e9ecef #e9ecef #dee2e6;
+}
+
+/* Contenido principal */
+.content-main {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+.footer {
+    background-color: #343a40; /* Gris oscuro de Bootstrap */
+    color: white;
+    padding: 20px 0;
+    margin-top: 30px;
+    flex-shrink: 0;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.main-content {
+    flex: 1 0 auto;
+}
+
+/* Marco del tablero */
+.pinboard-frame {
+    background: transparent;
+    border-radius: 18px;
+    box-shadow: 0 0 16px 2px #a97c50;
+    border: 8px solid #a97c50;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Barra superior pastel */
+.bg-pastel {
+    background: linear-gradient(90deg, #b3e6ff 60%, #e0f7fa 100%);
+}
+
+/* Post-it del título */
+.postit-note-title {
+    background: #b3e6ff;
+    border-radius: 18px 32px 24px 16px/24px 18px 32px 16px;
+    box-shadow: 4px 8px 18px 2px #2176ae, 0 2px 0 #b3e6ff;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 0.5rem;
+    border: 2px solid #2176ae;
+    transform: rotate(-2deg);
+    position: relative;
+}
+
+.postit-note-title::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+    bottom: 12px;
+    width: 48px;
+    height: 18px;
+    background: linear-gradient(120deg, #e0f7fa 60%, #b3e6ff 100%);
+    border-radius: 0 0 12px 12px;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+/* Post-its de las tarjetas */
+.postit-card {
+    border-radius: 18px 32px 24px 16px/24px 18px 32px 16px;
+    box-shadow: 4px 8px 18px 2px #b59b5b, 0 2px 0 #e6d267;
+    padding: 1.2rem 1.2rem 0.5rem 1.2rem;
+    border: 2px solid #e6d267;
+    transform: rotate(-2deg);
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    margin-bottom: 1rem;
+    min-height: 260px;
+    background: #fff89a;
+    position: relative;
+}
+
+.postit-yellow { background: #fff89a; }
+.postit-green { background: #caffb3; }
+.postit-pink { background: #ffd1f7; }
+
+.postit-card::after {
+    content: "";
+    position: absolute;
+    right: 18px;
+    bottom: 12px;
+    width: 38px;
+    height: 14px;
+    background: linear-gradient(120deg, #fffde4 60%, #e6d267 100%);
+    border-radius: 0 0 12px 12px;
+    opacity: 0.6;
+    z-index: 1;
+}
