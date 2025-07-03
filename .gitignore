@@ -1,4 +1,3 @@
-
 # Entorno virtual
 venv/
 
@@ -25,3 +24,4 @@ __pycache__/
 # Archivos estáticos y de media generados
 staticfiles/
 media/
+.venv/
