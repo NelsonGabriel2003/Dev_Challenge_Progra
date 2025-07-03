@@ -6,6 +6,6 @@ from .models import Ruta
 def index(request):
     rutas = Ruta.objects.all()
     context = {'rutas': rutas}
-    return render(request, 'index.html')
+    return render(request, 'index.html', context)
 
 
