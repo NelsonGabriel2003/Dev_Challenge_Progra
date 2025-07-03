@@ -10,44 +10,27 @@
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- Ejemplo de pines/rutas -->
+        {% for ruta in rutas %}
         <div class="col">
             <div class="postit-card postit-yellow h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Ruta Parque Central</h5>
-                    <p class="card-text">Recorrido seguro desde el centro hasta el parque, ideal para ciclistas y peatones.</p>
-                    <span class="badge bg-primary">Ciclismo</span>
+                    <h5 class="card-title">{{ ruta.titulo }}</h5>
+                    <p class="card-text">{{ ruta.descripcion }}</p>
+                    <span class="badge bg-primary">{{ ruta.get_tipo_transporte_display }}</span>
                 </div>
                 <div class="card-footer text-end bg-transparent border-0">
                     <button class="btn btn-outline-primary btn-sm" onclick="alert('Ver detalles en desarrollo')">Ver detalles</button>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="postit-card postit-green h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Ruta Escolar Segura</h5>
-                    <p class="card-text">Ruta recomendada para niños y padres, con cruces vigilados y señalización.</p>
-                    <span class="badge bg-success">Peatón</span>
-                </div>
-                <div class="card-footer text-end bg-transparent border-0">
-                    <button class="btn btn-outline-primary btn-sm" onclick="alert('Ver detalles en desarrollo')">Ver detalles</button>
-                </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info text-center" role="alert">
+                <i class="fas fa-info-circle"></i>
+                ¡Aún no hay rutas publicadas! Sé el primero en agregar una.
             </div>
         </div>
-        <div class="col">
-            <div class="postit-card postit-pink h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Ruta Universitaria</h5>
-                    <p class="card-text">Camino seguro y rápido hacia la universidad, con iluminación nocturna y cámaras.</p>
-                    <span class="badge bg-warning text-dark">Mixta</span>
-                </div>
-                <div class="card-footer text-end bg-transparent border-0">
-                    <button class="btn btn-outline-primary btn-sm" onclick="alert('Ver detalles en desarrollo')">Ver detalles</button>
-                </div>
-            </div>
-        </div>
-        <!-- Puedes agregar más tarjetas de ejemplo aquí -->
+        {% endfor %}
     </div>
 </div>
 {% endblock content %}
