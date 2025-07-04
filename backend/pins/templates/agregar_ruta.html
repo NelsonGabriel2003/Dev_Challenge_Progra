@@ -7,96 +7,93 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="postit-card postit-yellow">
-                <div class="card-header bg-transparent border-0 p-0 mb-3">
-                    <h4 class="mb-0" style="color: #4A6B8A; font-weight: bold;">
+                <div class="mb-3">
+                    <h4 style="color: #4A6B8A; font-weight: bold;">
                         <i class="fas fa-plus-circle me-2"></i>
                         Agregar Nueva Ruta
                     </h4>
                 </div>
-                <div class="card-body p-0">
-                    {% if messages %}
-                        {% for message in messages %}
-                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                                {{ message }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-
-                    <form method="post" class="needs-validation" novalidate>
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="{{ form.titulo.id_for_label }}" class="form-label">
-                                    <i class="fas fa-heading me-1"></i>Título de la Ruta
-                                </label>
-                                {{ form.titulo }}
-                                {% if form.titulo.errors %}
-                                    <div class="invalid-feedback d-block">
-                                        {{ form.titulo.errors.0 }}
-                                    </div>
-                                {% endif %}
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="{{ form.tipo_transporte.id_for_label }}" class="form-label">
-                                    <i class="fas fa-route me-1"></i>Tipo de Transporte
-                                </label>
-                                {{ form.tipo_transporte }}
-                                {% if form.tipo_transporte.errors %}
-                                    <div class="invalid-feedback d-block">
-                                        {{ form.tipo_transporte.errors.0 }}
-                                    </div>
-                                {% endif %}
-                            </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="{{ form.punto_inicio.id_for_label }}" class="form-label">
-                                    <i class="fas fa-map-marker-alt me-1"></i>Punto de Inicio
-                                </label>
-                                {{ form.punto_inicio }}
-                                {% if form.punto_inicio.errors %}
-                                    <div class="invalid-feedback d-block">
-                                        {{ form.punto_inicio.errors.0 }}
-                                    </div>
-                                {% endif %}
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="{{ form.punto_destino.id_for_label }}" class="form-label">
-                                    <i class="fas fa-map-marker me-1"></i>Punto de Destino
-                                </label>
-                                {{ form.punto_destino }}
-                                {% if form.punto_destino.errors %}
-                                    <div class="invalid-feedback d-block">
-                                        {{ form.punto_destino.errors.0 }}
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="{{ form.descripcion.id_for_label }}" class="form-label">
-                                <i class="fas fa-align-left me-1"></i>Descripción de la Ruta
+                    {% endfor %}
+                {% endif %}
+                <form method="post" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.titulo.id_for_label }}" class="form-label">
+                                <i class="fas fa-heading me-1"></i>Título de la Ruta
                             </label>
-                            {{ form.descripcion }}
-                            {% if form.descripcion.errors %}
+                            {{ form.titulo }}
+                            {% if form.titulo.errors %}
                                 <div class="invalid-feedback d-block">
-                                    {{ form.descripcion.errors.0 }}
+                                    {{ form.titulo.errors.0 }}
                                 </div>
                             {% endif %}
-                            <div class="form-text">
-                                Describe los pasos, paradas, y cualquier consejo útil para seguir esta ruta.
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.tipo_transporte.id_for_label }}" class="form-label">
+                                <i class="fas fa-route me-1"></i>Tipo de Transporte
+                            </label>
+                            {{ form.tipo_transporte }}
+                            {% if form.tipo_transporte.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ form.tipo_transporte.errors.0 }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.punto_inicio.id_for_label }}" class="form-label">
+                                <i class="fas fa-map-marker-alt me-1"></i>Punto de Inicio
+                            </label>
+                            {{ form.punto_inicio }}
+                            {% if form.punto_inicio.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ form.punto_inicio.errors.0 }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.punto_destino.id_for_label }}" class="form-label">
+                                <i class="fas fa-map-marker me-1"></i>Punto de Destino
+                            </label>
+                            {{ form.punto_destino }}
+                            {% if form.punto_destino.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ form.punto_destino.errors.0 }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.descripcion.id_for_label }}" class="form-label">
+                            <i class="fas fa-align-left me-1"></i>Descripción de la Ruta
+                        </label>
+                        {{ form.descripcion }}
+                        {% if form.descripcion.errors %}
+                            <div class="invalid-feedback d-block">
+                                {{ form.descripcion.errors.0 }}
                             </div>
+                        {% endif %}
+                        <div class="form-text">
+                            Describe los pasos, paradas, y cualquier consejo útil para seguir esta ruta.
                         </div>
-                        <div class="d-flex justify-content-between">
-                            <a href="{% url 'pins:index' %}" class="btn btn-secondary">
-                                <i class="fas fa-arrow-left me-1"></i>Volver
-                            </a>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-1"></i>Guardar Ruta
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'pins:index' %}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left me-1"></i>Volver
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-1"></i>Guardar Ruta
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
