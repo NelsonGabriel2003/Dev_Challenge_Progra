@@ -53,6 +53,9 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </button>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'pins:editar_ruta' ruta.id %}">
+                                <i class="fas fa-edit me-2"></i>Editar
+                            </a></li>
                             <li><a class="dropdown-item" href="#" onclick="alert('Funcionalidad en desarrollo')">
                                 <i class="fas fa-share me-2"></i>Compartir
                             </a></li>
