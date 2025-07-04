@@ -43,6 +43,6 @@ def editar_ruta(request, ruta_id):
         'form': form,
         'ruta': ruta  
     }
-    return render(request, 'editar_ruta.html', context)
+    return render(request, 'agregar_ruta.html', context)
 
 

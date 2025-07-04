@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Agregar Ruta - Pinboard{% endblock title %}
+{% block title %}{% if ruta %}Editar Ruta{% else %}Agregar Ruta{% endif %} - Pinboard{% endblock title %}
 
 {% block content %}
 <div class="container mt-4">
@@ -9,8 +9,13 @@
             <div class="postit-card postit-yellow">
                 <div class="mb-3">
                     <h4 style="color: #4A6B8A; font-weight: bold;">
-                        <i class="fas fa-plus-circle me-2"></i>
-                        Agregar Nueva Ruta
+                        {% if ruta %}
+                            <i class="fas fa-edit me-2"></i>
+                            Editar Ruta
+                        {% else %}
+                            <i class="fas fa-plus-circle me-2"></i>
+                            Agregar Nueva Ruta
+                        {% endif %}
                     </h4>
                 </div>
                 {% if messages %}
@@ -90,7 +95,12 @@
                             <i class="fas fa-arrow-left me-1"></i>Volver
                         </a>
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save me-1"></i>Guardar Ruta
+                            <i class="fas fa-save me-1"></i>
+                            {% if ruta %}
+                                Guardar Cambios
+                            {% else %}
+                                Guardar Ruta
+                            {% endif %}
                         </button>
                     </div>
                 </form>
