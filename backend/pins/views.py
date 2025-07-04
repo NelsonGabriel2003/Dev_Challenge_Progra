@@ -21,6 +21,10 @@ def agregar_ruta(request):
         else:
             messages.error(request, 'Por favor corrige los errores en el formulario.')
     else:
+
+        storage = messages.get_messages(request)
+        for _ in storage:
+            pass  # simplemente itera para marcar como leídos
         form = RutaForm()
     
     context = {'form': form}
