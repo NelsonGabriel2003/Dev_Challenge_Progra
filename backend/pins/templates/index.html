@@ -4,33 +4,149 @@
 
 {% block content %}
 <div class="container py-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <!-- Header mejorado -->
+    <div class="text-center mb-5">
         <div class="postit-note-title mx-auto position-relative">
-            <h2 class="mb-0 text-center titulo-postit">Tablero de Rutas Seguras</h2>
+            <h2 class="mb-0 text-center titulo-postit">
+                <i class="fas fa-map-marked-alt me-3"></i>
+                Tablero de Rutas Seguras
+            </h2>
+        </div>
+        <p class="text-muted mt-3">
+            <i class="fas fa-lightbulb me-2"></i>
+            Descubre las mejores rutas compartidas por nuestra comunidad
+        </p>
+    </div>
+
+    <!-- Filtros y estadísticas -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="d-flex flex-wrap gap-2">
+                <span class="badge bg-info fs-6">
+                    <i class="fas fa-route me-1"></i>
+                    {{ rutas.count }} rutas disponibles
+                </span>
+                <span class="badge bg-success fs-6">
+                    <i class="fas fa-clock me-1"></i>
+                    Actualizado recientemente
+                </span>
+            </div>
+        </div>
+        <div class="col-md-4 text-end">
+            <button class="btn btn-outline-primary" onclick="alert('Filtros en desarrollo')">
+                <i class="fas fa-filter me-1"></i>
+                Filtrar
+            </button>
         </div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <!-- Grid de rutas mejorado -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for ruta in rutas %}
         <div class="col">
-            <div class="postit-card postit-yellow h-100">
-                <div class="card-body">
-                    <h5 class="card-title">{{ ruta.titulo }}</h5>
-                    <p class="card-text">{{ ruta.descripcion }}</p>
-                    <span class="badge bg-primary">{{ ruta.get_tipo_transporte_display }}</span>
+            <div class="postit-card postit-yellow h-100 position-relative">
+                <!-- Header de la tarjeta -->
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <h5 class="card-title mb-0 flex-grow-1">{{ ruta.titulo }}</h5>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="alert('Funcionalidad en desarrollo')">
+                                <i class="fas fa-share me-2"></i>Compartir
+                            </a></li>
+                            <li><a class="dropdown-item" href="#" onclick="alert('Funcionalidad en desarrollo')">
+                                <i class="fas fa-heart me-2"></i>Guardar
+                            </a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card-footer text-end bg-transparent border-0">
-                    <button class="btn btn-outline-primary btn-sm" onclick="alert('Ver detalles en desarrollo')">Ver detalles</button>
+
+                <!-- Información de la ruta -->
+                <div class="ruta-info mb-3">
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                <small class="text-muted">Desde:</small>
+                                <div class="fw-semibold">{{ ruta.punto_inicio|truncatechars:25 }}</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker text-success me-2"></i>
+                                <small class="text-muted">Hasta:</small>
+                                <div class="fw-semibold">{{ ruta.punto_destino|truncatechars:25 }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="descripcion-ruta mb-3">
+                        <p class="card-text">{{ ruta.descripcion|truncatewords:20 }}</p>
+                    </div>
+                </div>
+
+                <!-- Footer con badges y botones -->
+                <div class="ruta-footer">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-primary">
+                                <i class="fas fa-{{ ruta.tipo_transporte|lower }} me-1"></i>
+                                {{ ruta.get_tipo_transporte_display }}
+                            </span>
+                            <span class="badge bg-secondary">
+                                <i class="fas fa-calendar-alt me-1"></i>
+                                {{ ruta.fecha_creacion|date:"M d" }}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary btn-sm flex-grow-1" onclick="alert('Ver detalles en desarrollo')">
+                            <i class="fas fa-eye me-1"></i>
+                            Ver Detalles
+                        </button>
+                        <button class="btn btn-outline-success btn-sm" onclick="alert('Funcionalidad en desarrollo')">
+                            <i class="fas fa-star"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
         {% empty %}
         <div class="col-12">
-            <div class="alert alert-info text-center" role="alert">
-                <i class="fas fa-info-circle"></i>
-                ¡Aún no hay rutas publicadas! Sé el primero en agregar una.
+            <div class="text-center py-5">
+                <div class="empty-state">
+                    <i class="fas fa-route fa-4x text-muted mb-4"></i>
+                    <h4 class="text-muted mb-3">¡No hay rutas disponibles!</h4>
+                    <p class="text-muted mb-4">
+                        Sé el primero en compartir una ruta segura con la comunidad.
+                    </p>
+                    <a href="{% url 'pins:agregar_ruta' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-plus me-2"></i>
+                        Agregar Primera Ruta
+                    </a>
+                </div>
             </div>
         </div>
         {% endfor %}
     </div>
+
+    <!-- Call to action -->
+    {% if rutas %}
+    <div class="text-center mt-5">
+        <div class="cta-section">
+            <h5 class="text-muted mb-3">
+                <i class="fas fa-lightbulb me-2"></i>
+                ¿Conoces una ruta que no está aquí?
+            </h5>
+            <a href="{% url 'pins:agregar_ruta' %}" class="btn btn-success btn-lg">
+                <i class="fas fa-plus me-2"></i>
+                Compartir Nueva Ruta
+            </a>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock content %}

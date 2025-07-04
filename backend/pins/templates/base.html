@@ -29,7 +29,7 @@
 
         <ul class="nav nav-tabs justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active" href="{% url 'pins:index' %}">
+                <a class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'pins:index' %}">
                     <i class="fas fa-home"></i>
                     Inicio
                 </a>
@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" onclick="alert('Funcionalidad en desarrollo')">
+                <a class="nav-link {% if request.resolver_match.url_name == 'agregar_ruta' %}active{% endif %}" href="{% url 'pins:agregar_ruta' %}">
                     <i class="fas fa-plus"></i>
                     Agregar Ruta
                 </a>
